@@ -3,8 +3,6 @@
 #include <chrono>
 #include <iostream>
 
-#include <filesystem>
-
 void BulkProcessor::startBlock() {
     if (current_block_.depth == 0)
         flush();
