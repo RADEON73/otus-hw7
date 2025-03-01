@@ -1,5 +1,5 @@
 #pragma once
-#include "bulkProcessor.h"
+#include "BulkProcessor.h"
 
 /**
  * @class ICommand
