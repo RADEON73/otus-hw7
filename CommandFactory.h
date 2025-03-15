@@ -4,27 +4,27 @@
 
 /**
  * @class CommandFactory
- * @brief ‘абрика дл¤ создани¤ команд.
+ * @brief Фабрика для создания команд.
  *
- *  ласс CommandFactory создает объекты команд на основе входной строки.
+ * Класс CommandFactory создает объекты команд на основе входной строки.
  */
 class CommandFactory
 {
 public:
-    /**
- * @brief —оздает команду на основе входной строки.
- * @param command ¬ходна¤ строка команды.
- * @return ”казатель на созданную команду.
+	/**
+ * @brief Создает команду на основе входной строки.
+ * @param command Входная строка команды.
+ * @return Указатель на созданную команду.
  */
-    static std::unique_ptr<ICommand> create(const std::string& command) {
-        if (command == "{") {
-            return std::make_unique<StartBlockCommand>();
-        }
-        else if (command == "}") {
-            return std::make_unique<EndBlockCommand>();
-        }
-        else {
-            return std::make_unique<RegularCommand>(command);
-        }
-    }
+	static std::unique_ptr<ICommand> create(const std::string& command) {
+		if (command == "{") {
+			return std::make_unique<StartBlockCommand>();
+		}
+		else if (command == "}") {
+			return std::make_unique<EndBlockCommand>();
+		}
+		else {
+			return std::make_unique<RegularCommand>(command);
+		}
+	}
 };

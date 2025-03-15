@@ -11,12 +11,12 @@
 class ICommand
 {
 public:
-    virtual ~ICommand() = default;
-    /**
-    * @brief Выполняет команду.
-    * @param processor Объект BulkProcessor, который будет обрабатывать команду.
-    */
-    virtual void execute(BulkProcessor& processor) = 0;
+	virtual ~ICommand() = default;
+	/**
+	* @brief Выполняет команду.
+	* @param processor Объект BulkProcessor, который будет обрабатывать команду.
+	*/
+	virtual void execute(BulkProcessor& processor) = 0;
 };
 
 /**
@@ -28,9 +28,9 @@ public:
 class StartBlockCommand : public ICommand
 {
 public:
-    void execute(BulkProcessor& processor) override {
-        processor.startBlock();
-    }
+	void execute(BulkProcessor& processor) override {
+		processor.startBlock();
+	}
 };
 
 /**
@@ -42,9 +42,9 @@ public:
 class EndBlockCommand : public ICommand
 {
 public:
-    void execute(BulkProcessor& processor) override {
-        processor.endBlock();
-    }
+	void execute(BulkProcessor& processor) override {
+		processor.endBlock();
+	}
 };
 
 /**
@@ -56,16 +56,16 @@ public:
 class RegularCommand : public ICommand
 {
 public:
-    /**
+	/**
  * @brief Конструктор класса RegularCommand.
  * @param command Команда для добавления.
  */
-    explicit RegularCommand(const std::string& command) : command_(command) {}
+	explicit RegularCommand(const std::string& command) : command_(command) {}
 
-    void execute(BulkProcessor& processor) override {
-        processor.addCommand(command_);
-    }
+	void execute(BulkProcessor& processor) override {
+		processor.addCommand(command_);
+	}
 
 private:
-    std::string command_; ///< Команда для добавления.
+	std::string command_; ///< Команда для добавления.
 };

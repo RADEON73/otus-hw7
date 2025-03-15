@@ -47,6 +47,12 @@ public:
 	*/
 	void addCommand(const std::string& command);
 
+	/**
+	* @brief Возвращает тип текущего блока команд.
+	* @return Тип текущего блока команд (динамический/статический)
+	*/
+	bool isDynamic() const;
+
 private:
 	/**
 	* @brief Сбрасывает текущий блок, выводя и логируя его содержимое.
